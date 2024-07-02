@@ -1,26 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patronus</title>
-    <link rel="stylesheet" href="app.css">
+    <title>Patronus Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+        }
+
+        .patronus {
+            font-size: 5rem;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            animation: glow 1.5s infinite alternate, move 3s infinite;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f, 0 0 40px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+            }
+            to {
+                text-shadow: 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 50px #0ff, 0 0 80px #0ff, 0 0 100px #0ff, 0 0 150px #0ff, 0 0 200px #0ff;
+            }
+        }
+
+        @keyframes move {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <svg viewBox="0 0 600 300">
-        <!-- Symbol-->
-        <symbol id="s-text">
-            <text text-anchor="middle" x="50%" y="50%" dy=".35em">Patronus!</text>
-        </symbol>
-        <!-- Duplicate symbols-->
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-    </svg>
+    <div class="patronus">Patronus!</div>
 </body>
-
 </html>
